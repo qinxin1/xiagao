@@ -1,0 +1,17 @@
+npm install -g cnpm --registry=https://registry.npm.taobao.org 
+安装cnpm
+
+
+
+1、全局安装Vue-cli：
+      npm install vue-cli -g
+2、查看是否安装成功：
+      vue -V
+3、初始化项目：
+      vue init webpack 自定义目录名称
+4、进入到第3步定义的目录：   
+      cd 你的目录名称
+5、安装项目依赖插件：
+      npm install
+6、启动服务器：
+      npm run dev

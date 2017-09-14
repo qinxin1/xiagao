@@ -1,0 +1,140 @@
+1、let和const的相同点：
+
+①　只在声明所在的块级作用域内有效。
+
+②　不提升，同时存在暂时性死区，只能在声明的位置后面使用。
+
+③　不可重复声明。
+-------------------
+2、let和const的不同点：
+
+①　let声明的变量可以改变，值和类型都可以改变；const声明的
+
+常量不可以改变，这意味着，const一旦声明，就必须立即初始化，
+
+不能以后再赋值。
+
+②　数组和对象等复合类型的变量，变量名不指向数据，而是指向数
+
+据所在的地址。const只保证变量名指向的地址不变，并不保证该地址
+
+的数据不变，所以将一个复合类型的变量声明为常量必须非常小心
+-------------------
+3  for  of  循环可以循环出来数组的值
+   for  of 不能循环对象
+-------------------
+
+4 map.set  设置map值
+  map['a'] 拿不到值并返回undefined说明a并非数组索引
+  map.delete('a'); 删除、
+  map.get('b')  获取属性值
+  map.entries() 返回的是属性名和属性值
+  map.keys()    返回的是属性名
+  map.values()  返回的是属性值
+--------------------
+5   箭头函数
+   函数名=函数参数=>返回值
+   箭头函数可以不使用函数名，可以直接使用函数参数=>返回值
+
+   如果对象内部有函数使用格式为
+       show:()=>{
+               alert(this.a);
+            }
+   内部this指向的是window，箭头函数把对象中的this指向从对象更改成window
+   arguments 关键字是函数内部接受参数，arguments不能添加数值
+---------------------
+
+6 数组
+ var arr2=Array.from(arr); 是将arr复制给arr2   内部操作是复制一个新的数组
+---------------------
+7   ...args
+   必须使用3个点
+   当我们使用...args 接受一个数组时，实际上我们可以通过args对数组进行操作，用arguments责只能接受不能操作
+---------------------
+8   字符串拼接
+   使用方式在
+   var str=`今天天气很晴朗 ${a}考试打了不及格, ${b}考试及格了`;
+----------------------
+9  对象的声明
+   class Person{ //类
+            constructor(name,age){
+                this.name=name;
+                this.age=age;
+            }
+            showName(){
+                return this.name;
+            }
+            showAge(){
+                return this.age;
+            }
+        } 
+关键字  constructor
+
+继承方式 
+   class  wok extends person{
+
+}
+
+子类继承父类可以重新书写构造函数，但是在构造函数内要添加super（），构造函数参数可以添加默认值
+------------------------
+10  promise 使用方式
+      var promi=new Promise(function(resolve,reject){
+        	resolve("成功执行的");
+        	/*reject("失败执行的");*/
+        })
+        promi.then(function(value){
+        	console.log("成"+"   "+value);
+        },function(vale){
+        	console.log("失"+"   "+vale);
+        })
+------------------------
+11   promise.all的使用方法？ all的意思是不管成功或者失败都要执行，如果传入两个promise对象，会执行失败的
+      Promise.all([false,promise对象]).then(function(value){
+            console.log('成功了,'+value);
+        },function(value){
+            console.log('错误了,'+ value);
+        });
+-------------------------
+
+12    promise的throw 和catch的使用方法
+  p1.then(function(value){
+         	console.log(value);
+         },function(value){
+         	console.log(value);
+         	throw "出错了";
+         }).catch(function(e){
+         	console.log(e);
+         })
+--------------------------
+
+13    Promise.race 先执行的比较
+   var p1=new Promise(function(resolve,reject){
+            setTimeout(resolve,50,'one');
+        });
+        var p2=new Promise(function(resolve,reject){
+            setTimeout(resolve,20,'two');
+        });
+
+        Promise.race([p2,p1]).then(function(value){
+            console.log(value);
+        });
+---------------------------
+    
+14  模块化 
+    a.js   export defult a;
+    b.html <script src="traceur.js"></script>
+    		<script src="bootstrap.js"></script>
+    		<script type="module">
+       			 import suun from "a.js";
+        		 console.log(suun);
+       
+   		 </script>
+ 引用的两个js  必须要都写，type=“module”    也要必须写
+------------------------------
+15   symbol  第七种数据类型    声明不使用new  但是使用函数方法声明  
+eg ：  var sy=Symbol();  //  可以使用var   let  const   可以传参返回并没有双引   
+不是对象   不能给属性赋值   他是独一无二的 
+
+  只有symbol(a).toString===symbol(a).toString的时候才是true
+
+   
